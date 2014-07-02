@@ -20,9 +20,16 @@
     
     NSMutableArray *array = [NSMutableArray array];
     
-    for(int i = number; i <= otherNumber; i++) {
-        NSNumber *newNumber = [NSNumber numberWithInt:i];
-        [array addObject: newNumber];
+    if (number < otherNumber) {
+        for(int i = number; i <= otherNumber; i++) {
+            NSNumber *newNumber = [NSNumber numberWithInt:i];
+            [array addObject: newNumber];
+        }
+    } else {
+        for(int i = otherNumber; i >= number; i--) {
+            NSNumber *newNumber = [NSNumber numberWithInt:i];
+            [array addObject: newNumber];
+        }
     }
     
     return array;
@@ -30,7 +37,7 @@
 
 - (NSInteger) lowestNumberInArray:(NSArray *)arrayOfNumbers {
     
-    NSInteger num = 0;
+    NSInteger num;
     
     for (NSInteger i = 0; i < [arrayOfNumbers count]; i++) {
         if (num > [arrayOfNumbers[i] integerValue])

@@ -36,9 +36,20 @@
     XCTAssertEqualObjects(expectedArray, actualArray, @"Incorrect number array was returned.");
 }
 
+- (void)testThatArrayOfNumbersWorksReversed {
+    NSArray *expectedArray = @[@8, @7, @6, @5];
+    NSArray *actualArray = [self.handler arrayOfNumbersBetweenNumber:8 andOtherNumber:5];
+    XCTAssertEqualObjects(expectedArray, actualArray, @"Incorrect number array was returned.");
+}
+
 - (void) testThatLowestNumberIsReturned {
     NSInteger lowestNumber = [self.handler lowestNumberInArray:@[@3, @8, @-4, @0]];
     XCTAssertEqual(lowestNumber, -4, @"Lowest number should be -4.");
+}
+
+- (void) testThatLowestNumberIsReturnedWhenAboveZero {
+    NSInteger lowestNumber = [self.handler lowestNumberInArray:@[@3, @8, @1, @22]];
+    XCTAssertEqual(lowestNumber, 1, @"Lowest number should be 1.");
 }
 
 - (void) testThatNumberDoublingWorks {
