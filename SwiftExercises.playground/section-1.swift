@@ -7,12 +7,12 @@ Strings
 */
 
 func favoriteCheeseStringWithCheese(cheese: String) -> String {
-    // WORK HERE
-    return cheese
+    let newCheese = "My favorite cheese is \(cheese)"
+    return newCheese
 }
 
 let fullSentence = favoriteCheeseStringWithCheese("cheddar")
-// Make fullSentence say "My favorite cheese is cheddar."
+println("\(fullSentence)")
 
 /*
 
@@ -22,11 +22,14 @@ Arrays & Dictionaries
 
 let numberArray = [1, 2, 3, 4]
 // Add 5 to this array
-// WORK HERE
+numberArray + [5]
 
-let numberDictionary = [1 : "one", 2 : "two", 3 : "three", 4 : "four"]
+
+var numberDictionary = [1 : "one", 2 : "two", 3 : "three", 4 : "four"]
 // Add 5 : "five" to this dictionary
-// WORK HERE
+numberDictionary[5] = "five"
+numberDictionary
+
 
 /*
 
@@ -35,10 +38,15 @@ Loops
 */
 
 // Use a closed range loop to print 1 - 10, inclusively
-// WORK HERE
+for i in 1...10 {
+    i
+}
+
 
 // Use a half-closed range loop to print 1 - 10, inclusively
-// WORK HERE
+for i in 1..11 {
+    i
+}
 
 let worf = [
     "name": "Worf",
@@ -57,8 +65,13 @@ let characters = [worf, picard]
 
 func favoriteDrinksArrayForCharacters(characters:Array<Dictionary<String, String>>) -> Array<String> {
     // return an array of favorite drinks, like ["prune juice", "tea, Earl Grey, hot"]
-    // WORK HERE
-    return []
+    var returnedArray: String[] = []
+    
+    for i in characters {
+        returnedArray += i["favorite drink"]! // Ricky, is there a better way to do this?
+    }
+    
+    return returnedArray
 }
 
 let favoriteDrinks = favoriteDrinksArrayForCharacters(characters)
@@ -75,9 +88,18 @@ Functions
 
 let strings = ["milk", "eggs", "bread", "challah"]
 
-// WORK HERE - make your function and pass `strings` in
+func stringReturner(givenArray: Array<String>) -> String
+{
+    var returnedString = String()
+    
+    for i in givenArray {
+        returnedString += i + ";"
+    }
+    return returnedString
+}
 
 let expectedOutput = "milk;eggs;bread;challah"
+let actualOutput = stringReturner(strings) // Ricky, not perfect since it includes a ';' at the end, is there no built in way to do this?
 
 /*
 
@@ -88,4 +110,4 @@ Closures
 let cerealArray = ["Golden Grahams", "Cheerios", "Trix", "Cap'n Crunch OOPS! All Berries", "Cookie Crisp"]
 
 // Use a closure to sort this array alphabetically
-// WORK HERE
+var sortedArray = sort(cerealArray, <)

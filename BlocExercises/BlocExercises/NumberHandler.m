@@ -26,7 +26,7 @@
             [array addObject: newNumber];
         }
     } else {
-        for(int i = otherNumber; i >= number; i--) {
+        for(int i = number; i >= otherNumber; i--) {
             NSNumber *newNumber = [NSNumber numberWithInt:i];
             [array addObject: newNumber];
         }
@@ -37,7 +37,7 @@
 
 - (NSInteger) lowestNumberInArray:(NSArray *)arrayOfNumbers {
     
-    NSInteger num;
+    NSInteger num = [arrayOfNumbers[0] integerValue];
     
     for (NSInteger i = 0; i < [arrayOfNumbers count]; i++) {
         if (num > [arrayOfNumbers[i] integerValue])
