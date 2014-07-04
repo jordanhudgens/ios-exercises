@@ -99,7 +99,10 @@ func stringReturner(givenArray: Array<String>) -> String
 }
 
 let expectedOutput = "milk;eggs;bread;challah"
-let actualOutput = stringReturner(strings) // Ricky, not perfect since it includes a ';' at the end, is there no built in way to do this?
+let actualOutput = stringReturner(strings)
+
+actualOutput.substringToIndex(countElements(actualOutput)-1)
+
 
 /*
 
@@ -111,3 +114,10 @@ let cerealArray = ["Golden Grahams", "Cheerios", "Trix", "Cap'n Crunch OOPS! All
 
 // Use a closure to sort this array alphabetically
 var sortedArray = sort(cerealArray, <)
+
+func cerealSorter(cereal1: String, cereal2: String) -> Bool {
+    return cereal1 < cereal2
+}
+
+var sortedCerealTheHardWay = sort(cerealArray, cerealSorter)
+
